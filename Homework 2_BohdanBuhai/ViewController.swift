@@ -9,23 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var arreySailor = [Sailor]()
-    let sailor1 = Sailor(nameSailor: "Bob")
-    let sailor2 = Sailor(nameSailor: "Jec")
-    let sailor3 = Sailor(nameSailor: "Alys")
-    let sailor4 = Sailor(nameSailor: "Sem")
-    let sailor5 = Sailor(nameSailor: "Jon")
-    
-    //MARK: Task 10
-    let bob = Farmer()
-    let alice = Cleener()
-    let jeck = Butcher()
-    let sem = Warrior()
-    let jone = Hero1(name: "Jone")
-    let anne = Hero2(name: "Anne")
-    
-    let inctanseTavern = Tavern()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let inctanseSailor = Sailor(nameSailor: "Bohdan")
@@ -33,8 +16,7 @@ class ViewController: UIViewController {
         
         addSailors()
         addUnits()
-        inctanseTavern.movers.append(bob)
-        inctanseTavern.fighters.append(jeck)
+        
         inctanseTavern.enterTavern(hero: jone)
         
         let example1 = 2.pow(to: 3)
@@ -45,18 +27,9 @@ class ViewController: UIViewController {
         let inctanseShip = Ship(nameShip: "Ukrasne", arreySaillors: arreySailor)
         inctanseShip.introduceAll()
         
-       
-    }
-   
-    func addUnits() {
-        inctanseTavern.movers.append(bob)
-        inctanseTavern.movers.append(alice)
-        inctanseTavern.fighters.append(jeck)
-        inctanseTavern.fighters.append(sem)
-       
     }
     
-// MARK: Task 3
+    // MARK: Task 3
     func addSailors() {
         arreySailor.append(sailor1)
         arreySailor.append(sailor2)
@@ -64,7 +37,6 @@ class ViewController: UIViewController {
         arreySailor.append(sailor4)
         arreySailor.append(sailor5)
     }
-    
 }
 // MARK: Task 1
 
@@ -83,8 +55,8 @@ class Sailor {
 // MARK: Task 2
 
 class Ship {
-     let nameShip: String
-     var arreySaillors: [Sailor]
+    let nameShip: String
+    var arreySaillors: [Sailor]
     
     init(nameShip: String, arreySaillors: [Sailor]) {
         self.nameShip = nameShip
@@ -96,6 +68,23 @@ class Ship {
         print("Ми з корабля \(nameShip)")
     }
 }
+// MARK: Task 3
+
+var arreySailor = [Sailor]()
+let sailor1 = Sailor(nameSailor: "Bob")
+let sailor2 = Sailor(nameSailor: "Jec")
+let sailor3 = Sailor(nameSailor: "Alys")
+let sailor4 = Sailor(nameSailor: "Sem")
+let sailor5 = Sailor(nameSailor: "Jon")
+
+func addSailors() {
+    arreySailor.append(sailor1)
+    arreySailor.append(sailor2)
+    arreySailor.append(sailor3)
+    arreySailor.append(sailor4)
+    arreySailor.append(sailor5)
+}
+
 // MARK: Task 4
 
 final class Titanic: Ship {
@@ -105,7 +94,6 @@ final class Titanic: Ship {
         
         arreySaillors.forEach { $0.introduceMyself()}
         print("We are from the ship \(nameShip)")
-        
     }
 }
 
@@ -230,19 +218,33 @@ struct Hero2: Hero {
 
 final class Tavern {
     
-     var movers: [Movable] = []
-     var fighters: [Fightable] = []
+    var movers: [Movable] = []
+    var fighters: [Fightable] = []
     
-     func enterTavern(hero: Hero) {
+    func enterTavern(hero: Hero) {
         hero.fight()
         movers.forEach { $0.run()}
         fighters.forEach { $0.fight() }
     }
 }
+//MARK: Task 10
+let bob = Farmer()
+let alice = Cleener()
+let jeck = Butcher()
+let sem = Warrior()
+let jone = Hero1(name: "Jone")
+let anne = Hero2(name: "Anne")
 
+let inctanseTavern = Tavern()
 
-    
-    // MARK: Task 12
+func addUnits() {
+    inctanseTavern.movers.append(bob)
+    inctanseTavern.movers.append(alice)
+    inctanseTavern.fighters.append(jeck)
+    inctanseTavern.fighters.append(sem)
+}
+
+// MARK: Task 12
 extension Int {
     func pow(to: Int) -> Int {
         var resalt = 1
