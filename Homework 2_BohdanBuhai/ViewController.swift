@@ -223,7 +223,7 @@ struct Hero2: Hero {
     }
     
     func fight() {
-        print("\(name) Uoy need to fight")
+        print("\(name) Uoy need to ")
     }
 }
 // MARK: Task 9
